@@ -1,6 +1,7 @@
 from secret import *
 import tweepy
 from random import choice
+import os
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_secret)
@@ -17,10 +18,8 @@ class BotStreamer(tweepy.StreamListener):
 			api.update_status(status = tweet, in_reply_to_status_id = status_id)
 
 		if 'shiba' in status.text.lower():
-			pictureList = ["shiba/1.jpg", "shiba/2.jpg", "shiba/3.jpg", "shiba/4.jpg", "shiba/5.jpg", "shiba/6.jpg", 
-			"shiba/7.jpg", "shiba/8.jpg", "shiba/9.jpg", "shiba/10.jpg", ]
-			tweetPicutre = "@" + status.user.screen_name
-			api.update_with_media(filename=choice(pictureList), status=tweetPicutre, in_reply_to_status_id = status_id)
+			tweetPicture = "@" + status.user.screen_name
+			api.update_with_media(filename=choice(os.listdir("shiba")), status=tweetPicture, in_reply_to_status_id = status_id)
 
 myStreamListener = BotStreamer()
 stream = tweepy.Stream(auth, myStreamListener)
