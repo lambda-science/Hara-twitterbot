@@ -19,7 +19,8 @@ class BotStreamer(tweepy.StreamListener):
 
 		if 'shiba' in status.text.lower():
 			tweetPicture = "@" + status.user.screen_name
-			api.update_with_media(filename=choice(os.listdir("shiba")), status=tweetPicture, in_reply_to_status_id = status_id)
+			picturePath = "shiba/" + choice(os.listdir("shiba"))
+			api.update_with_media(filename=picturePath, status=tweetPicture, in_reply_to_status_id = status_id)
 
 myStreamListener = BotStreamer()
 stream = tweepy.Stream(auth, myStreamListener)
