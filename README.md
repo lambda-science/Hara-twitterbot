@@ -1,0 +1,1 @@
+dependencies: tweepy, Pillow
