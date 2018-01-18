@@ -1,5 +1,5 @@
 
-# genetics
+# Hara-twitterbot
 My own python twitter bot for testing purpose @ https://twitter.com/Bot_Harajuku
 
 ### Functionalities
