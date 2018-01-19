@@ -65,7 +65,7 @@ def downloadSingleImage(search_keyword):
 	    pass
 
 	j = 0
-	url = 'https://www.google.com/search?q=' + search_keyword + '&espv=2&biw=1366&bih=667&site=webhp&source=lnms&tbm=isch' + '&sa=X&ei=XosDVaCXD8TasATItgE&ved=0CAcQ_AUoAg'
+	url = 'https://www.google.com/search?safe=active&q=' + search_keyword + '&espv=2&biw=1366&bih=667&site=webhp&source=lnms&tbm=isch' + '&sa=X&ei=XosDVaCXD8TasATItgE&ved=0CAcQ_AUoAg'
 	raw_html = (download_page(url))
 	time.sleep(0.1)
 	items = _images_get_all_items(raw_html)
