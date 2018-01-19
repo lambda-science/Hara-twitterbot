@@ -26,6 +26,17 @@ class BotStreamer(tweepy.StreamListener):
 			api.update_with_media(filename=picturePath, status=tweetPicture, in_reply_to_status_id = status_id)
 			shutil.rmtree("shiba+inu", ignore_errors=True)
 
+		if "!image" in status.text.lower():
+			posBeginTweet = status.text.lower().find("!image") + 7
+			search_word = str(status.text[posBeginTweet:len(status.text)])
+			search_word = search_word.replace(" ", "+")
+			downloadSingleImage(search_word)
+
+			tweetPicture = "@" + status.user.screen_name
+			picturePath = search_word +"/" + choice(os.listdir(search_word))
+			api.update_with_media(filename=picturePath, status=tweetPicture, in_reply_to_status_id = status_id)
+			shutil.rmtree(search_word, ignore_errors=True)
+
 myStreamListener = BotStreamer()
 stream = tweepy.Stream(auth, myStreamListener)
 stream.filter(track=['@Bot_Harajuku'])
