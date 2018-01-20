@@ -4,7 +4,7 @@ My own python twitter bot for testing purpose @ https://twitter.com/Bot_Harajuku
 
 ### Functionalities
 A twitter bot that I created to test some functionalities and that may have a true purpose one day.
-At the moment, it only answer to ping and shiba picture requests.
+At the moment, it only answers to ping and shiba picture requests and answers to !image [keyword] with a random google image picture
 
 ### How to use
 
