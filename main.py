@@ -3,6 +3,7 @@ import tweepy
 from random import choice
 import os
 from lib.googleImagesDownload import *
+from lib.cleanRequest import *
 import shutil
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
@@ -29,6 +30,7 @@ class BotStreamer(tweepy.StreamListener):
 		if "!image" in status.text.lower():
 			posBeginTweet = status.text.lower().find("!image") + 7
 			search_word = str(status.text[posBeginTweet:len(status.text)])
+			search_word = cleanRequestTweet(search_word)
 			search_word = search_word.replace(" ", "+")
 			downloadSingleImage(search_word)
 
